@@ -132,8 +132,8 @@ html {
     position: absolute;
     display: flex;
     left: 0;
-    /*   transform: translateX(-50%);
-  animation: wheelin 1s 2s ease-in-out forwards; */
+    transform: translateX(-50%);
+    animation: wheelin 1s 2s ease-in-out forwards; 
 }
 
 .tray__swatch {
