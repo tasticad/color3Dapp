@@ -247,11 +247,27 @@ function selectSwatch(e) {
 	let color = colors[parseInt(e.target.dataset.key)];
 	let new_mtl;
 
-	new_mtl = new THREE.MeshPhongMaterial({
-		color: parseInt('0x' + color.color),
-		shininess: color.shininess ? color.shininess : 10
-	});
+	if (color.texture) {
 
+		let txt = new THREE.TextureLoader().load(color.texture);
+
+		txt.repeat.set( color.size[0], color.size[1], color.size[2]);
+		txt.wrapS = THREE.RepeatWrapping;
+		txt.wrapT = THREE.RepeatWrapping;
+
+		new_mtl = new THREE.MeshPhongMaterial( {
+			map: txt,
+			shininess: color.shininess ? color.shininess : 10
+		});
+
+	} else {
+
+		new_mtl = new THREE.MeshPhongMaterial({
+			color: parseInt('0x' + color.color),
+			shininess: color.shininess ? color.shininess : 10
+		});
+	}
+	
 	setMaterial(theModel, activeOption, new_mtl);
 }
 
