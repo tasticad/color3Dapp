@@ -1,15 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    
-    <!-- Imporant meta information to make the page as rigid as possible on mobiles, to avoid unintentional zooming on the page itself  -->
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="UTF-8">
+	
+	<!-- Imporant meta information to make the page as rigid as possible on mobiles, to avoid unintentional zooming on the page itself  -->
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chair Tutorial</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>App test - color on 3D object</title>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:500,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+
+	<style> /* loader styles */
+	.loading {
+		position: fixed;
+		z-index: 50;
+		width: 100%;
+		height: 100%;
+		top: 0; left: 0;
+		background: #f1f1f1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.loader{
+		-webkit-perspective: 120px;
+		-moz-perspective: 120px;
+		-ms-perspective: 120px;
+		perspective: 120px;
+		width: 100px;
+		height: 100px;
+	}
+	.loader:before{
+		content: "";
+		position: absolute;
+		left: 25px;
+		top: 25px;
+		width: 50px;
+		height: 50px;
+		background-color: #ff0000;
+		animation: flip 1s infinite;
+	}
+	@keyframes flip {
+		0% { transform: rotate(0); }
+
+		50% { transform: rotateY(180deg);	}
+
+		100% { transform: rotateY(180deg) rotateX(180deg); }
+	}
+	</style>
+
 </head>
 <body>
 

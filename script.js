@@ -1,3 +1,4 @@
+const LOADER = document.getElementById('js-loader');
 
 
 const DRAG_NOTICE = document.getElementById('js-drag-notice');
@@ -264,6 +265,11 @@ loader.load(MODEL_PATH, function(gltf) {
 
 	// Add the model to the scene
 	scene.add(theModel);
+
+
+	// Remove the loader
+	LOADER.remove();
+
 
 }, undefined, function(error) {
 	console.error(error)
